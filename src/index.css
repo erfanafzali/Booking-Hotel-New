@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all ease-in-out;
+  transition-duration: 500ms;
+  
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
