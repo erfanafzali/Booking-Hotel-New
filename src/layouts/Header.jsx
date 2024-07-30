@@ -24,8 +24,8 @@ function Header() {
   const [openDate, setOpenDate] = useState(false);
 
   return (
-    <div className="w-full flex flex-col md:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 ">
-      <nav className="w-full flex flex-col justify-center items-center md:flex-row gap-y-2 gap-x-20">
+    <div className="w-full flex flex-col lg:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 mb-12">
+      <nav className="w-full flex flex-col justify-center items-center lg:flex-row gap-y-2 gap-x-20">
         <SearchHotel />
         <DatePickerHotel
           date={date}
@@ -40,9 +40,9 @@ function Header() {
           setOpenOption={setOpenOption}
         />
       </nav>
-      <button className=" w-full md:w-auto md:px-3 md:py-3 bg-slate-300 rounded-lg py-1.5 flex justify-center items-center">
-        <FiSearch className="hidden md:flex" />
-        <p className="flex md:hidden font-bold text-slate-600 justify-center items-center">
+      <button className=" w-full lg:w-auto md:px-3 md:py-3 bg-slate-300 rounded-lg py-1.5 flex justify-center items-center">
+        <FiSearch className="hidden lg:flex" />
+        <p className="flex lg:hidden font-bold text-slate-600 justify-center items-center">
           Search ...
         </p>
       </button>

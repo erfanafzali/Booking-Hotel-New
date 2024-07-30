@@ -65,7 +65,7 @@ function ListOptions({
   return (
     <div
       ref={optionRef}
-      className="md:absolute mt-3 md:mt-0 w-64 rounded-lg bg-slate-300 top-12 space-y-1 py-1"
+      className="lg:absolute mt-3 md:mt-0 w-64 rounded-lg bg-slate-300 top-12 space-y-1 py-1"
     >
       <Option
         option={option}

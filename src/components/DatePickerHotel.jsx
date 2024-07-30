@@ -15,7 +15,7 @@ function DatePickerHotel({ date, setDate, openDate, setOpenDate }) {
       <div
         id="outsideDateId"
         onClick={() => setOpenDate(!openDate)}
-        className="border px-4 py-1.5 rounded-xl bg-slate-500 font-semibold text-slate-200 flex justify-center items-center gap-x-3"
+        className="border px-4 py-1.5 rounded-xl bg-slate-500 font-semibold text-slate-200 flex justify-center items-center gap-x-3 "
       >
         <FaCalendarAlt />
         <span>
@@ -40,7 +40,7 @@ function Calendar({ setOpenDate, date, setDate }) {
   useOutsideClick(dateRef, "outsideDateId", () => setOpenDate(false));
 
   return (
-    <div ref={dateRef} className="md:absolute  top-12 md:my-0 my-4">
+    <div ref={dateRef} className="lg:absolute  top-12 md:my-0 my-4">
       <DateRange
         onChange={(item) => setDate([item.selection])}
         ranges={date}
