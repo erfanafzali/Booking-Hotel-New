@@ -1,3 +1,5 @@
+import { FaCalendarAlt } from "react-icons/fa";
+
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
@@ -6,15 +8,22 @@ import { useOutsideClick } from "../hooks/useOutsideClick";
 import { format } from "date-fns";
 
 function DatePickerHotel({ date, setDate, openDate, setOpenDate }) {
-  console.log(date);
+ 
 
   return (
-    <div
-      id="outsideDateId"
-      className="ursor-pointer flex justify-center items-center flex-col relative"
-    >
-      <div onClick={() => setOpenDate(!openDate)} className="">
-        {`${format(date[0].startDate , "MM/dd/yyyy")} to ${format(date[0].endDate , "MM/dd/yyyy")}`}
+    <div className="ursor-pointer flex justify-center items-center flex-col relative ">
+      <div
+        id="outsideDateId"
+        onClick={() => setOpenDate(!openDate)}
+        className="border px-4 py-1.5 rounded-xl bg-slate-500 font-semibold text-slate-200 flex justify-center items-center gap-x-3"
+      >
+        <FaCalendarAlt />
+        <span>
+          {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
+            date[0].endDate,
+            "MM/dd/yyyy"
+          )}`}
+        </span>
       </div>
 
       {openDate && (
@@ -31,7 +40,7 @@ function Calendar({ setOpenDate, date, setDate }) {
   useOutsideClick(dateRef, "outsideDateId", () => setOpenDate(false));
 
   return (
-    <div ref={dateRef} className="md:absolute  top-6 ">
+    <div ref={dateRef} className="md:absolute  top-12 md:my-0 my-4">
       <DateRange
         onChange={(item) => setDate([item.selection])}
         ranges={date}
