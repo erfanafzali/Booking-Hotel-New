@@ -2,7 +2,7 @@ import useFetch from "../hooks/useFetch";
 import Loader from "../modules/Loader";
 import truncateText from "../utils/truncateText";
 
-const BASE_URL = "http://localhost:3000/hotels";
+export const BASE_URL = "http://localhost:3000/hotels";
 
 function HomePage() {
   const { data, isLoading } = useFetch(BASE_URL);
@@ -13,7 +13,7 @@ function HomePage() {
   return (
     <div className="w-full mb-24">
       <ul className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  justify-center items-start gap-x-4 gap-y-4 w-full">
-        {showData.map((item) => (
+        {showData?.map((item) => (
           <li
             key={item.id}
             className="w-full  bg-slate-700 min-h-[450px] md:max-h-[500px] lg:max-h-[490px] xl:max-h-[470px] rounded-lg pb-10 overflow-hidden"
