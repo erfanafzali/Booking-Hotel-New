@@ -26,7 +26,7 @@ function OptionHotel({ openOption, setOption, option, setOpenOption }) {
       <ul
         id="optionDropDown"
         onClick={() => setOpenOption(!openOption)}
-        className="flex font-semibold justify-center items-center gap-x-3 border-slate-200 border rounded-xl px-3 bg-slate-500 text-slate-200 py-1.5"
+        className="flex font-semibold justify-center items-center gap-x-3 border-slate-200 border rounded-xl px-3 bg-slate-500 text-slate-200 py-1.5 lg:text-sm xl:text-base"
       >
         <li className="space-x-2">
           <span>Adult:</span>

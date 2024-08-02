@@ -20,8 +20,8 @@ function HotelPage() {
   // name_like
 
   return (
-    <div className="text-white w-full bg-slate-700 order-1 md:order-none rounded-xl h-screen">
-      <div className="w-full flex flex-col items-center justify-start">
+    <div className="text-white w-full bg-slate-700 order-1 md:order-none rounded-xl sticky top-0">
+      <div className="w-full flex flex-col items-center justify-start ">
         <SearchResults data={data?.length} />
         <ListOfHotels data={data} isLoading={isLoading} />
       </div>

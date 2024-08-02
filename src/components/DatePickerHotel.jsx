@@ -8,8 +8,6 @@ import { useOutsideClick } from "../hooks/useOutsideClick";
 import { format } from "date-fns";
 
 function DatePickerHotel({ date, setDate, openDate, setOpenDate }) {
- 
-
   return (
     <div className="ursor-pointer flex justify-center items-center flex-col relative ">
       <div
@@ -18,12 +16,8 @@ function DatePickerHotel({ date, setDate, openDate, setOpenDate }) {
         className="border px-4 py-1.5 rounded-xl bg-slate-500 font-semibold text-slate-200 flex justify-center items-center gap-x-3 "
       >
         <FaCalendarAlt />
-        <span>
-          {`${format(date[0].startDate, "MM/dd/yyyy")} to ${format(
-            date[0].endDate,
-            "MM/dd/yyyy"
-          )}`}
-        </span>
+        <span className="lg:text-sm xl:text-base">{`${format(date[0].startDate, "MM/dd/yyyy")}`}</span>
+        <span className="lg:text-sm xl:text-base">{`${format(date[0].endDate, "MM/dd/yyyy")}`}</span>
       </div>
 
       {openDate && (
