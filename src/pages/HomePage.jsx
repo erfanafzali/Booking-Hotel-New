@@ -2,10 +2,8 @@ import useFetch from "../hooks/useFetch";
 import Loader from "../modules/Loader";
 import truncateText from "../utils/truncateText";
 
-export const BASE_URL = "http://localhost:3000/hotels";
-
 function HomePage() {
-  const { data, isLoading } = useFetch(BASE_URL);
+  const { data, isLoading } = useFetch("http://localhost:3000/hotels");
 
   const showData = data.slice(0, 6);
   if (isLoading) return <Loader />;

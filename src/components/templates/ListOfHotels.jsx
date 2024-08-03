@@ -1,21 +1,21 @@
 import { Link } from "react-router-dom";
-import Loader from "../../modules/Loader";
 
-function ListOfHotels({ isLoading, data }) {
+function ListOfHotels({ data }) {
   const showData = data.slice(0, 6);
-  if (isLoading) return <Loader />;
 
   return (
     <div className="w-full h-[600px] overflow-y-auto">
-      {showData?.map((item) => (
-        <Link
-          key={item.id}
-          to={`/hotels/${item.id}?lat=${item.latitude}?lng=${item.longitude}`}
-          className="w-full flex flex-col items-center justify-center py-2 "
-        >
-          <HotelTab item={item} />
-        </Link>
-      ))}
+      {showData.map((item) => {
+        return (
+          <Link
+            key={item.id}
+            to={`/hotels/${item.id}?lat=${item.latitude}?lng=${item.longitude}`}
+            className="w-full flex flex-col items-center justify-center py-2 "
+          >
+            <HotelTab item={item} />
+          </Link>
+        );
+      })}
     </div>
   );
 }

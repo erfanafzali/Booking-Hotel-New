@@ -1,28 +1,25 @@
 import ListOfHotels from "../components/templates/ListOfHotels";
 import { useSearchParams } from "react-router-dom";
-import { BASE_URL } from "./HomePage";
 import useFetch from "../hooks/useFetch";
+import Loader from "../modules/Loader";
 
 function HotelPage() {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const destination = searchParams.get("destination");
-  const option = JSON.parse(searchParams.get("option"));
-  const date = JSON.parse(searchParams.get("date"));
-
-  const { adult, children, room } = option;
+  const room = JSON.parse(searchParams.get("option"))?.room;
 
   const { data, isLoading } = useFetch(
-    BASE_URL,
+    "http://localhost:3000/hotels",
     `q=${destination || ""}&accommodates_gte=${room || 1}`
   );
   console.log(data);
 
-  // name_like
+  if (isLoading) return <Loader />;
 
   return (
     <div className="text-white w-full bg-slate-700 order-1 md:order-none rounded-xl sticky top-0">
       <div className="w-full flex flex-col items-center justify-start ">
-        <SearchResults data={data?.length} />
+        <SearchResults data={data.length} />
         <ListOfHotels data={data} isLoading={isLoading} />
       </div>
     </div>

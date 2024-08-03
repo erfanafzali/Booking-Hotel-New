@@ -23,21 +23,23 @@ const selectionRange = {
 };
 
 function Header() {
-  const [destination, setDestination] = useState("");
+  const [searchParams] = useSearchParams();
+  const [destination, setDestination] = useState(
+    searchParams.get("destination") || ""
+  );
   const [openOption, setOpenOption] = useState(false);
   const [option, setOption] = useState(optionData);
   const [date, setDate] = useState([selectionRange]);
   const [openDate, setOpenDate] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
   const navigate = useNavigate();
 
   const searchHandler = () => {
     const encodedParams = createSearchParams({
       date: JSON.stringify(date),
-      destination,
       option: JSON.stringify(option),
+      destination,
     });
-    // setSearchParams(encodedParams)
+
     navigate({
       pathname: "/hotels",
       search: encodedParams.toString(),
@@ -46,7 +48,7 @@ function Header() {
 
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 mb-12">
-      <nav className="w-full flex flex-col justify-center items-center lg:flex-row gap-y-2 gap-x-20">
+      <div className="w-full flex flex-col justify-center items-center lg:flex-row gap-y-2 gap-x-20">
         <SearchHotel
           destination={destination}
           setDestination={setDestination}
@@ -65,7 +67,7 @@ function Header() {
             setOpenOption={setOpenOption}
           />
         </div>
-      </nav>
+      </div>
       <button
         onClick={searchHandler}
         className=" w-full lg:w-auto md:px-3 md:py-3 bg-slate-300 rounded-lg py-1.5 flex justify-center items-center"
