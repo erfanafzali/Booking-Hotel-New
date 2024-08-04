@@ -1,9 +1,9 @@
 import ListOfHotels from "../components/templates/ListOfHotels";
+import { useHotels } from "../context/HotelsContext";
 import Loader from "../modules/Loader";
 
 function HotelPage() {
- 
- 
+  const { isLoading, hotels } = useHotels();
 
   if (isLoading) return <Loader />;
 

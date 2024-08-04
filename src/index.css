@@ -8,9 +8,19 @@
   box-sizing: border-box;
   transition: all ease-in-out;
   transition-duration: 500ms;
-  
 }
 
 button:disabled {
   cursor: not-allowed;
+}
+
+.leaflet-control {
+  z-index: 0 !important;
+}
+.leaflet-pane {
+  z-index: 0 !important;
+}
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 0 !important;
 }

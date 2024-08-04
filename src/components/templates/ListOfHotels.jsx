@@ -4,7 +4,7 @@ function ListOfHotels({ data }) {
   const showData = data.slice(0, 6);
 
   return (
-    <div className="w-full h-[600px] overflow-y-auto">
+    <div className="w-full h-auto overflow-y-auto">
       {showData.map((item) => {
         return (
           <Link
