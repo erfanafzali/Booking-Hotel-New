@@ -3,7 +3,7 @@ import { useHotels } from "../context/HotelsContext";
 import Loader from "../modules/Loader";
 
 function HotelPage() {
-  const { isLoading, hotels } = useHotels();
+  const { isLoading, hotels ,currentHotel } = useHotels();
 
   if (isLoading) return <Loader />;
 
@@ -11,7 +11,7 @@ function HotelPage() {
     <div className="text-white w-full bg-slate-700 order-1 md:order-none rounded-xl sticky top-0">
       <div className="w-full flex flex-col items-center justify-start ">
         <SearchResults data={hotels.length} />
-        <ListOfHotels data={hotels} isLoading={isLoading} />
+        <ListOfHotels data={hotels} isLoading={isLoading} currentHotel={currentHotel}/>
       </div>
     </div>
   );

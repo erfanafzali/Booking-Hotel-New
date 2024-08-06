@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ListOfHotels({ data }) {
+function ListOfHotels({ data, currentHotel }) {
   const showData = data.slice(0, 6);
 
   return (
@@ -12,7 +12,7 @@ function ListOfHotels({ data }) {
             to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}
             className="w-full flex flex-col items-center justify-center py-2 "
           >
-            <HotelTab item={item} />
+            <HotelTab item={item} currentHotel={currentHotel} />
           </Link>
         );
       })}
@@ -22,10 +22,14 @@ function ListOfHotels({ data }) {
 
 export default ListOfHotels;
 
-function HotelTab({ item }) {
+function HotelTab({ item, currentHotel }) {
   return (
     <div className="w-full px-3 ">
-      <div className="w-full  bg-slate-800 rounded-xl overflow-hidden flex justify-start items-center gap-x-2 sm:gap-x-3 lg:gap-x-5">
+      <div
+        className={`w-full  bg-slate-800 rounded-xl overflow-hidden flex justify-start items-center gap-x-2 sm:gap-x-3 lg:gap-x-5 ${
+          item?.id === currentHotel?.id ? "border-2 border-white" : ""
+        }`}
+      >
         <img
           src={item.thumbnail_url}
           alt=""

@@ -1,11 +1,12 @@
 import { Outlet } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 import MapPage from "../pages/MapPage";
 import useMoveBack from "../hooks/useMoveBack";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { useHotels } from "../context/HotelsContext";
 
-function HotelLayout() {
+function BookmarkLayout() {
   const moveBack = useMoveBack();
+
   const { hotels } = useHotels();
 
   return (
@@ -21,10 +22,10 @@ function HotelLayout() {
       </button>
       <div className="w-full md:flex-row flex-col flex justify-center items-start gap-y-7 md:gap-y-0 md:gap-x-7 mb-20">
         <Outlet />
-        <MapPage hotels={hotels} />
+        <MapPage hotels={[]} />
       </div>
     </>
   );
 }
 
-export default HotelLayout;
+export default BookmarkLayout;
