@@ -1,5 +1,4 @@
 import { FaCalendarAlt } from "react-icons/fa";
-
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRange } from "react-date-range";
@@ -9,7 +8,7 @@ import { format } from "date-fns";
 
 function DatePickerHotel({ date, setDate, openDate, setOpenDate }) {
   return (
-    <div className="ursor-pointer flex justify-center items-center flex-col relative ">
+    <div className="ursor-pointer flex justify-center items-center flex-col relative !z-50">
       <div
         id="outsideDateId"
         onClick={() => setOpenDate(!openDate)}

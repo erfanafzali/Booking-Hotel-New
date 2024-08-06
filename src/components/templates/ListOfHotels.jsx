@@ -9,7 +9,7 @@ function ListOfHotels({ data }) {
         return (
           <Link
             key={item.id}
-            to={`/hotels/${item.id}?lat=${item.latitude}?lng=${item.longitude}`}
+            to={`/hotels/${item.id}?lat=${item.latitude}&lng=${item.longitude}`}
             className="w-full flex flex-col items-center justify-center py-2 "
           >
             <HotelTab item={item} />
