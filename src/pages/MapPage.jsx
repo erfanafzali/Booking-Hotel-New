@@ -11,7 +11,7 @@ import {
 import { useNavigate, useSearchParams } from "react-router-dom";
 import useGeoLocation from "../hooks/useGeoLocation";
 
-function MapPage({ hotels }) {
+function MapPage({ markerLocation }) {
   const [searchParams, setSearchParams] = useSearchParams();
 
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
@@ -35,7 +35,7 @@ function MapPage({ hotels }) {
   }, [positionGeo]);
 
   return (
-    <div className=" order-0 md:order-none w-full  flex flex-col justify-center items-center  leaflet-control ">
+    <div className=" order-0 md:order-none w-full  flex flex-col justify-center items-center  leaflet-control">
       <MapContainer
         className="w-[100%]  h-screen rounded-xl border-2 border-slate-300"
         center={mapCenter}
@@ -44,7 +44,7 @@ function MapPage({ hotels }) {
       >
         <button
           onClick={getPosition}
-          className="bg-blue-600 px-2 py-1 rounded-md !z-50 absolute text-white font-semibold mb-1 ml-1 bottom-0 left-0"
+          className="bg-blue-600 px-2 py-1 rounded-md !z-50 absolute text-white font-semibold mb-1 ml-1 bottom-0 left-0 "
         >
           {isGeoLoading ? "Loading..." : "Use your location"}
         </button>
@@ -54,7 +54,7 @@ function MapPage({ hotels }) {
         />
         <DetectClick />
         <ChangeCenter position={mapCenter} />
-        {hotels?.map((item) => (
+        {markerLocation?.map((item) => (
           <Marker key={item.id} position={[lat || 51, lng || 10]}>
             <Popup>{item.host_location}</Popup>
           </Marker>

@@ -2,12 +2,13 @@ import { Outlet } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import MapPage from "../pages/MapPage";
 import useMoveBack from "../hooks/useMoveBack";
-import { useHotels } from "../context/HotelsContext";
+import { useBookmarks } from "../context/BookmarkContext";
 
 function BookmarkLayout() {
   const moveBack = useMoveBack();
 
-  const { hotels } = useHotels();
+  const { bookmarks } = useBookmarks();
+  console.log(bookmarks)
 
   return (
     <>
@@ -22,7 +23,7 @@ function BookmarkLayout() {
       </button>
       <div className="w-full md:flex-row flex-col flex justify-center items-start gap-y-7 md:gap-y-0 md:gap-x-7 mb-20">
         <Outlet />
-        <MapPage hotels={[]} />
+        <MapPage markerLocation={bookmarks} />
       </div>
     </>
   );
