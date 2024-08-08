@@ -9,7 +9,7 @@ const BookmarkContext = createContext();
 export default function BookmarkProvider({ children }) {
   const [currBookmark, setCurrBookmark] = useState({});
   const [isLoadingBookmark, setIsLoadingBookmark] = useState(false);
-  
+   
   const { isLoading, data: bookmarks } = useFetch(`${BASE_URL}/bookmarks`);
 
   async function getBookmark(id) {

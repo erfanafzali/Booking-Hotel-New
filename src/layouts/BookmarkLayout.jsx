@@ -8,7 +8,6 @@ function BookmarkLayout() {
   const moveBack = useMoveBack();
 
   const { bookmarks } = useBookmarks();
-  console.log(bookmarks)
 
   return (
     <>

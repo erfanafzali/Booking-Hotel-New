@@ -2,5 +2,5 @@ import { useNavigate } from "react-router-dom";
 
 export default function useMoveBack() {
   const navigate = useNavigate();
-  return () => navigate("/", { replace: true });
+  return () => navigate(-1, { replace: true });
 }

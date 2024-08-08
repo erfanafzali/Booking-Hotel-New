@@ -4,6 +4,9 @@ import SingleHotelPage from "../pages/SingleHotelPage";
 import HotelPage from "../pages/HotelPage";
 import HotelLayout from "../layouts/HotelLayout";
 import BookmarkLayout from "../layouts/BookmarkLayout";
+import BookmarkListPage from "../pages/BookmarkListPage";
+import AddBookmark from "../components/templates/AddBookmark";
+import SingleBookmarkPage from "../pages/SingleBookmarkPage";
 
 function Router() {
   return (
@@ -15,9 +18,10 @@ function Router() {
           <Route path=":id" element={<SingleHotelPage />} />
         </Route>
 
-        <Route path="/bookmark" element={<BookmarkLayout />}>
-          <Route index element={<>bookmark</>} />
-          <Route path="add" element={<>add bookmark</>} />
+        <Route path="/bookmarks" element={<BookmarkLayout />}>
+          <Route index element={<BookmarkListPage />} />
+          <Route path=":id" element={<SingleBookmarkPage />} />
+          <Route path="add" element={<AddBookmark />} />
         </Route>
       </Routes>
     </div>
