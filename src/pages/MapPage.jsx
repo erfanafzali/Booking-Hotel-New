@@ -8,21 +8,18 @@ import {
   useMap,
   useMapEvent,
 } from "react-leaflet";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useGeoLocation from "../hooks/useGeoLocation";
+import useUrlLocation from "../hooks/useUrlLocation";
 
 function MapPage({ markerLocation }) {
-  const [searchParams, setSearchParams] = useSearchParams();
-
+  const [lat, lng] = useUrlLocation();
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
   const {
     isLoading: isGeoLoading,
     position: positionGeo,
     getPosition,
   } = useGeoLocation();
-
-  const lat = searchParams.get("lat");
-  const lng = searchParams.get("lng");
 
   useEffect(() => {
     if (lat && lng) setMapCenter([lat, lng]);
@@ -75,7 +72,8 @@ function ChangeCenter({ position }) {
 function DetectClick() {
   const navigate = useNavigate();
   useMapEvent({
-    click: (e) => navigate(`/bookmarks/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
+    click: (e) =>
+      navigate(`/bookmarks/add?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
   });
   return null;
 }

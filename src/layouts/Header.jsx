@@ -1,4 +1,6 @@
 import { IoHome } from "react-icons/io5";
+import { MdBookmarkAdd } from "react-icons/md";
+
 import { FiSearch } from "react-icons/fi";
 import OptionHotel from "../components/OptionHotel";
 import DatePickerHotel from "../components/DatePickerHotel";
@@ -6,6 +8,7 @@ import SearchHotel from "../components/SearchHotel";
 import { useState } from "react";
 import {
   createSearchParams,
+  Link,
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
@@ -48,6 +51,14 @@ function Header() {
 
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 mb-12">
+      <div className="flex justify-center items-center gap-x-2">
+        <Link to="/bookmarks">
+          <MdBookmarkAdd className="w-8 h-8 text-white" />
+        </Link>
+        <Link to="/">
+          <IoHome className="w-8 h-8 text-white" />
+        </Link>
+      </div>
       <div className="w-full flex flex-col justify-center items-center lg:flex-row gap-y-2 gap-x-20">
         <SearchHotel
           destination={destination}

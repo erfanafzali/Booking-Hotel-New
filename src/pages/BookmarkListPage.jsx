@@ -19,7 +19,7 @@ function BookmarkListPage() {
           to={`${item.id}?lat=${item.latitude}&lng=${item.longitude}`}
           key={item.id}
           className={`w-full flex justify-start items-center  px-4  bg-slate-900 text-slate-100 gap-x-5 font-semibold  mb-4 py-3 rounded-xl ${
-            item.id === currBookmark.id ? "border-slate-200 border-2" : "border-2 border-slate-500"
+            item?.id === currBookmark?.id ? "border-slate-200 border-2" : "border-2 border-slate-500"
           }`}
         >
           <ReactCountryFlag svg countryCode={item.countryCode} />
