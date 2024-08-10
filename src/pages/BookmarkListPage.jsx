@@ -38,7 +38,7 @@ function BookmarkListPage() {
           }`}
         >
           <div className="w-full flex justify-between items-center">
-            <div className="flex justify-center items-center">
+            <div className="flex justify-center items-center gap-x-2">
               <ReactCountryFlag svg countryCode={item.countryCode} />
               <div className=" flex justify-center items-center text-sm  lg:text-base">
                 <p>{truncateText(item.country, 20)}</p>
@@ -50,7 +50,7 @@ function BookmarkListPage() {
               className=""
               onClick={(e) => handleDeleteBookmark(e, item.id)}
             >
-              <FaTrash className="w-5 h-5 text-red-500" />
+              <FaTrash className="w-5 h-5 text-red-500 hover:text-red-300" />
             </button>
           </div>
         </Link>

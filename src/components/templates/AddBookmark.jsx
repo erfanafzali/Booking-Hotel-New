@@ -36,7 +36,6 @@ function AddBookmark() {
         setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
         setCountryCode(data.countryCode);
-        console.log(data);
       } catch (error) {
         setGeoCodingError(error.message);
         console.log(error);
@@ -60,7 +59,7 @@ function AddBookmark() {
       host_location: cityName + " " + country,
     };
     await createBookmark(newBookmark);
-    navigate("/bookmarks")
+    navigate("/bookmarks");
   };
 
   if (isGeoLoading) return <Loader />;

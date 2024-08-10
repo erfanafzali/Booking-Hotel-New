@@ -15,6 +15,7 @@ import useUrlLocation from "../hooks/useUrlLocation";
 function MapPage({ markerLocation }) {
   const [lat, lng] = useUrlLocation();
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
+  console.log(markerLocation)
   const {
     isLoading: isGeoLoading,
     position: positionGeo,
@@ -51,8 +52,8 @@ function MapPage({ markerLocation }) {
         />
         <DetectClick />
         <ChangeCenter position={mapCenter} />
-        {markerLocation?.map((item) => (
-          <Marker key={item.id} position={[lat || 51, lng || 10]}>
+        {markerLocation.map((item) => (
+          <Marker key={item.id} position={[item.latitude, item.longitude]}>
             <Popup>{item.host_location}</Popup>
           </Marker>
         ))}

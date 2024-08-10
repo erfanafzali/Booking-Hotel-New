@@ -12,6 +12,7 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
+import { useBookmarks } from "../context/BookmarkContext";
 
 const optionData = {
   adult: 1,
@@ -26,6 +27,7 @@ const selectionRange = {
 };
 
 function Header() {
+  const { bookmarks } = useBookmarks();
   const [searchParams] = useSearchParams();
   const [destination, setDestination] = useState(
     searchParams.get("destination") || ""
@@ -52,8 +54,11 @@ function Header() {
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 mb-12">
       <div className="flex justify-center items-center gap-x-2">
-        <Link to="/bookmarks">
+        <Link to="/bookmarks" className="relative">
           <MdBookmarkAdd className="w-8 h-8 text-white" />
+          <span className="w-4 h-4 bg-red-500 rounded-full absolute text-xs text-center text-white font-semibold top-0">
+            {bookmarks.length}
+          </span>
         </Link>
         <Link to="/">
           <IoHome className="w-8 h-8 text-white" />

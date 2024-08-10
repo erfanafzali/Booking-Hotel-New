@@ -1325,31 +1325,49 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Rambures",
-      "country": "France",
-      "countryCode": "FR",
-      "latitude": "49.924703719314344",
-      "longitude": "1.7076873779296877",
-      "host_location": "Rambures France",
+      "cityName": "Aviemore",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "countryCode": "GB",
+      "latitude": "57.39170408045634",
+      "longitude": "-3.7188720703125004",
+      "host_location": "Aviemore United Kingdom of Great Britain and Northern Ireland (the)",
       "id": 1
     },
     {
-      "cityName": "Seneffe",
-      "country": "Belgium",
-      "countryCode": "BE",
-      "latitude": "50.583236614805905",
-      "longitude": "4.229008869698463",
-      "host_location": "Seneffe Belgium",
-      "id": 2
+      "cityName": "Lekebergs Kommun",
+      "country": "Sweden",
+      "countryCode": "SE",
+      "latitude": "59.24341475839977",
+      "longitude": "14.803985999284478",
+      "host_location": "Lekebergs Kommun Sweden",
+      "id": 4
     },
     {
-      "cityName": "Letchworth Garden City",
+      "cityName": "Kartaly",
+      "country": "Russian Federation (the)",
+      "countryCode": "RU",
+      "latitude": "52.908902047770255",
+      "longitude": "60.44324616339893",
+      "host_location": "Kartaly Russian Federation (the)",
+      "id": 5
+    },
+    {
+      "cityName": "London",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "countryCode": "GB",
-      "latitude": "51.998410382390325",
-      "longitude": "-0.1378909591091482",
-      "host_location": "Letchworth Garden City United Kingdom of Great Britain and Northern Ireland (the)",
-      "id": 3
+      "latitude": "51.5257270458621",
+      "longitude": "-0.09495598771508632",
+      "host_location": "London United Kingdom of Great Britain and Northern Ireland (the)",
+      "id": 7
+    },
+    {
+      "cityName": "Kerman",
+      "country": "Iran (Islamic Republic of)",
+      "countryCode": "IR",
+      "latitude": "30.26381184075493",
+      "longitude": "57.02213287353516",
+      "host_location": "Kerman Iran (Islamic Republic of)",
+      "id": 8
     }
   ]
 }
