@@ -5,6 +5,9 @@ import { useNavigate } from "react-router-dom";
 import useUrlLocation from "../../hooks/useUrlLocation";
 import axios from "axios";
 import ReactCountryFlag from "react-country-flag";
+import truncateText from "../../utils/truncateText";
+import Loader from "../../modules/Loader";
+import { useBookmarks } from "../../context/BookmarkContext";
 
 const BASE_GEOCODING_URL =
   "https://api.bigdatacloud.net/data/reverse-geocode-client";
@@ -15,28 +18,58 @@ function AddBookmark() {
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [countryCode, setCountryCode] = useState("");
+  const [isGeoLoading, setIsGeoLoading] = useState(false);
+  const [geoCodingError, setGeoCodingError] = useState(null);
+  const { createBookmark } = useBookmarks();
 
   useEffect(() => {
+    if (!lat || !lng) return;
+
     async function getGeoLocationData() {
       try {
+        setIsGeoLoading(true);
+        setGeoCodingError(null);
         const { data } = await axios.get(
           `${BASE_GEOCODING_URL}?latitude=${lat}&longitude=${lng}`
         );
-        setCityName(data.city);
+        if (!data.countryCode) throw new Error("This location is not a City");
+        setCityName(data.city || data.locality || "");
         setCountry(data.countryName);
         setCountryCode(data.countryCode);
         console.log(data);
       } catch (error) {
+        setGeoCodingError(error.message);
         console.log(error);
+      } finally {
+        setIsGeoLoading(false);
       }
     }
     getGeoLocationData();
   }, [lat, lng]);
 
-  const handleAddBookmark = (e) => {
+  const handleAddBookmark = async (e) => {
     e.preventDefault();
-    console.log(cityName, country);
+    if (!cityName || !country) return null;
+
+    const newBookmark = {
+      cityName,
+      country,
+      countryCode,
+      latitude: lat,
+      longitude: lng,
+      host_location: cityName + " " + country,
+    };
+    await createBookmark(newBookmark);
+    navigate("/bookmarks")
   };
+
+  if (isGeoLoading) return <Loader />;
+  if (geoCodingError)
+    return (
+      <div className="w-full bg-slate-700 text-white font-bold min-h-32 py-4 px-3 rounded-xl">
+        {geoCodingError}
+      </div>
+    );
 
   return (
     <div className="w-full bg-slate-700 pb-8 rounded-xl">
@@ -62,9 +95,9 @@ function AddBookmark() {
             id="cityName"
             className="w-full py-1.5 rounded-xl bg-slate-400 px-4 text-slate-100 font-semibold outline-none border-none "
           />
-          <ReactCountryFlag svg countryCode={countryCode} className="absolute right-8 top-11"/>
+          {/* <ReactCountryFlag svg countryCode={countryCode} className="absolute right-8 top-11"/> */}
         </div>
-        <div className="w-full flex flex-col justify-center items-start gap-y-2 px-4">
+        <div className="w-full flex flex-col justify-center items-start gap-y-2 px-4 relative">
           <label
             htmlFor="country"
             className="font-semibold text-slate-100 lg:text-lg"
@@ -72,12 +105,17 @@ function AddBookmark() {
             Country :
           </label>
           <input
-            value={country}
+            value={truncateText(country, 30)}
             onChange={(e) => setCountry(e.target.value)}
             type="text"
             id="country"
             name="country"
             className="w-full py-1.5 rounded-xl bg-slate-400 px-4 text-slate-100 font-semibold outline-none border-none"
+          />
+          <ReactCountryFlag
+            svg
+            countryCode={countryCode}
+            className="absolute right-8 top-11"
           />
         </div>
         <div className="w-full flex justify-between items-center px-4 mt-8">
