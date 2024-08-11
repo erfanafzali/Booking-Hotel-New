@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useReducer } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -86,6 +80,7 @@ export default function BookmarkProvider({ children }) {
   }, []);
 
   async function getBookmark(id) {
+    if (Number(id) === currBookmark?.id) return;
     dispatch({ type: "loading" });
     try {
       const { data } = await axios.get(`${BASE_URL}/bookmarks/${id}`);

@@ -1,5 +1,6 @@
 import { IoHome } from "react-icons/io5";
 import { MdBookmarkAdd } from "react-icons/md";
+import { RiLoginBoxFill } from "react-icons/ri";
 
 import { FiSearch } from "react-icons/fi";
 import OptionHotel from "../components/OptionHotel";
@@ -13,6 +14,7 @@ import {
   useSearchParams,
 } from "react-router-dom";
 import { useBookmarks } from "../context/BookmarkContext";
+import { useAuth } from "../context/AuthContext";
 
 const optionData = {
   adult: 1,
@@ -27,6 +29,7 @@ const selectionRange = {
 };
 
 function Header() {
+  const { isAuthentiacted } = useAuth();
   const { bookmarks } = useBookmarks();
   const [searchParams] = useSearchParams();
   const [destination, setDestination] = useState(
@@ -53,7 +56,7 @@ function Header() {
 
   return (
     <div className="w-full flex flex-col lg:flex-row items-center justify-center py-4 px-3 md:px-5 bg-slate-400  rounded-lg gap-y-4 mb-12">
-      <div className="flex justify-center items-center gap-x-2">
+      <div className="flex justify-around lg:justify-center items-center gap-x-2 w-full lg:w-auto">
         <Link to="/bookmarks" className="relative">
           <MdBookmarkAdd className="w-8 h-8 text-white" />
           <span className="w-4 h-4 bg-red-500 rounded-full absolute text-xs text-center text-white font-semibold top-0">
@@ -62,6 +65,9 @@ function Header() {
         </Link>
         <Link to="/">
           <IoHome className="w-8 h-8 text-white" />
+        </Link>
+        <Link to="/login">
+          <RiLoginBoxFill className={`${isAuthentiacted ? "text-slate-100":"text-slate-500 animate-bounce"} w-8 h-8`} />
         </Link>
       </div>
       <div className="w-full flex flex-col justify-center items-center lg:flex-row gap-y-2 gap-x-20">
