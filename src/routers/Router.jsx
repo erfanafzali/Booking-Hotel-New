@@ -7,6 +7,7 @@ import BookmarkLayout from "../layouts/BookmarkLayout";
 import BookmarkListPage from "../pages/BookmarkListPage";
 import AddBookmark from "../components/templates/AddBookmark";
 import SingleBookmarkPage from "../pages/SingleBookmarkPage";
+import NotFound from '../modules/NotFound';
 
 function Router() {
   return (
@@ -23,6 +24,7 @@ function Router() {
           <Route path=":id" element={<SingleBookmarkPage />} />
           <Route path="add" element={<AddBookmark />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   );

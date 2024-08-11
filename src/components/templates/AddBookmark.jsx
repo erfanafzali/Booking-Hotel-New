@@ -24,7 +24,6 @@ function AddBookmark() {
 
   useEffect(() => {
     if (!lat || !lng) return;
-
     async function getGeoLocationData() {
       try {
         setIsGeoLoading(true);

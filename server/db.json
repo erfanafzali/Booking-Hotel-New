@@ -1343,15 +1343,6 @@
       "id": 4
     },
     {
-      "cityName": "Kartaly",
-      "country": "Russian Federation (the)",
-      "countryCode": "RU",
-      "latitude": "52.908902047770255",
-      "longitude": "60.44324616339893",
-      "host_location": "Kartaly Russian Federation (the)",
-      "id": 5
-    },
-    {
       "cityName": "London",
       "country": "United Kingdom of Great Britain and Northern Ireland (the)",
       "countryCode": "GB",
@@ -1368,6 +1359,15 @@
       "longitude": "57.02213287353516",
       "host_location": "Kerman Iran (Islamic Republic of)",
       "id": 8
+    },
+    {
+      "cityName": "Amsterdam",
+      "country": "Netherlands (Kingdom of the)",
+      "countryCode": "NL",
+      "latitude": "52.38764910347806",
+      "longitude": "4.8324049051062445",
+      "host_location": "Amsterdam Netherlands (Kingdom of the)",
+      "id": 9
     }
   ]
 }

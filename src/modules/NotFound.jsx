@@ -6,7 +6,7 @@ function NotFound() {
 
   return (
     <div className="w-full max-w-lg mx-auto pt-8  text-end mt-32">
-      <h1 className="font-bold text-xl md:text-2xl w-full text-center">
+      <h1 className="font-bold text-xl md:text-2xl w-full text-center text-slate-300">
         The page you were looking for was not found 😵‍💫
       </h1>
       <button
