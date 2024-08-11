@@ -1368,6 +1368,15 @@
       "longitude": "4.8324049051062445",
       "host_location": "Amsterdam Netherlands (Kingdom of the)",
       "id": 9
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "countryCode": "GB",
+      "latitude": "51.513870548723986",
+      "longitude": "-0.0830841064453125",
+      "host_location": "London United Kingdom of Great Britain and Northern Ireland (the)",
+      "id": 10
     }
   ]
 }

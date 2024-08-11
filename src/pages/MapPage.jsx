@@ -15,7 +15,7 @@ import useUrlLocation from "../hooks/useUrlLocation";
 function MapPage({ markerLocation }) {
   const [lat, lng] = useUrlLocation();
   const [mapCenter, setMapCenter] = useState([51.505, -0.09]);
-  console.log(markerLocation)
+ 
   const {
     isLoading: isGeoLoading,
     position: positionGeo,
