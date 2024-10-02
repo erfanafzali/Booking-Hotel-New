@@ -1325,15 +1325,6 @@
   ],
   "bookmarks": [
     {
-      "cityName": "Aviemore",
-      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
-      "countryCode": "GB",
-      "latitude": "57.39170408045634",
-      "longitude": "-3.7188720703125004",
-      "host_location": "Aviemore United Kingdom of Great Britain and Northern Ireland (the)",
-      "id": 1
-    },
-    {
       "cityName": "Lekebergs Kommun",
       "country": "Sweden",
       "countryCode": "SE",
@@ -1377,6 +1368,42 @@
       "longitude": "-0.0830841064453125",
       "host_location": "London United Kingdom of Great Britain and Northern Ireland (the)",
       "id": 10
+    },
+    {
+      "cityName": "Bretigny-sur-Orge",
+      "country": "France",
+      "countryCode": "FR",
+      "latitude": "48.5979545854516",
+      "longitude": "2.285842895507813",
+      "host_location": "Bretigny-sur-Orge France",
+      "id": 11
+    },
+    {
+      "cityName": "London",
+      "country": "United Kingdom of Great Britain and Northern Ireland (the)",
+      "countryCode": "GB",
+      "latitude": "51.5501779951158",
+      "longitude": "-0.08102416992187501",
+      "host_location": "London United Kingdom of Great Britain and Northern Ireland (the)",
+      "id": 12
+    },
+    {
+      "cityName": "Beidha",
+      "country": "Algeria",
+      "countryCode": "DZ",
+      "latitude": "34.59704151614417",
+      "longitude": "2.1093750000000004",
+      "host_location": "Beidha Algeria",
+      "id": 13
+    },
+    {
+      "cityName": "Faidja",
+      "country": "Algeria",
+      "countryCode": "DZ",
+      "latitude": "34.76643521684172",
+      "longitude": "2.0459441887688583",
+      "host_location": "Faidja Algeria",
+      "id": 14
     }
   ]
 }

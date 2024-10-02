@@ -45,6 +45,9 @@ function AddBookmark() {
     getGeoLocationData();
   }, [lat, lng]);
 
+
+
+  
   const handleAddBookmark = async (e) => {
     e.preventDefault();
     if (!cityName || !country) return null;
